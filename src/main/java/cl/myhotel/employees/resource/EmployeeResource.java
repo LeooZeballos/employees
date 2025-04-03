@@ -49,8 +49,10 @@ public class EmployeeResource {
     }
 
     @GetMapping("/average-salary")
-    public ResponseEntity<List<AverageSalaryByDepartmentProjection>> getEmployeesWithSalaryAboveDepartmentAverage() {
-        return ResponseEntity.ok(employeeService.getEmployeesWithSalaryAboveDepartmentAverage());
+    public ResponseEntity<List<AverageSalaryByDepartmentProjection>> getEmployeesWithSalaryAboveDepartmentAverage(
+            @RequestParam(name = "having", defaultValue = "10") Integer having
+    ) {
+        return ResponseEntity.ok(employeeService.getEmployeesWithSalaryAboveDepartmentAverage(having));
     }
 
     @GetMapping("/by-country")

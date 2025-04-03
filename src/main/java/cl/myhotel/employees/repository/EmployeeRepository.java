@@ -92,11 +92,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
             WHERE d.department_id IN (SELECT department_id
                                         FROM employees
                                         GROUP BY department_id
-                                        HAVING COUNT(employee_id) > 10)
+                                        HAVING COUNT(employee_id) > :having)
             GROUP BY d.department_name
             ORDER BY d.department_name
             """, nativeQuery = true)
-    List<AverageSalaryByDepartmentProjection> getAverageSalaryByDepartmentWithMoreThan10Employees();
+    List<AverageSalaryByDepartmentProjection> getAverageSalaryByDepartmentWithMoreThan10Employees(Integer having);
 
     /**
      * vi. Obtener la siguiente información agrupada por país: cantidad empleados, salario promedio, salario más alto,

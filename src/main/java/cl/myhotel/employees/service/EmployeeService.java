@@ -71,8 +71,8 @@ public class EmployeeService {
     /**
      * v. Salario promedio de todos los departamentos que tengan más de 10 empleados.
      */
-    public List<AverageSalaryByDepartmentProjection> getEmployeesWithSalaryAboveDepartmentAverage() {
-        return employeeRepository.getAverageSalaryByDepartmentWithMoreThan10Employees();
+    public List<AverageSalaryByDepartmentProjection> getEmployeesWithSalaryAboveDepartmentAverage(Integer having) {
+        return employeeRepository.getAverageSalaryByDepartmentWithMoreThan10Employees(having);
     }
 
     /**
