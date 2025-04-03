@@ -1,7 +1,6 @@
 package cl.myhotel.employees.resource;
 
-import cl.myhotel.employees.dto.EmployeeSegmentByDepartmentProjection;
-import cl.myhotel.employees.dto.EmployeeSegmentProjection;
+import cl.myhotel.employees.dto.*;
 import cl.myhotel.employees.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +33,26 @@ public class EmployeeResource {
     @GetMapping("/segments/department")
     public ResponseEntity<List<EmployeeSegmentByDepartmentProjection>> getEmployeeSegmentsCountByDepartment() {
         return ResponseEntity.ok(employeeService.getEmployeeSegmentsCountByDepartment());
+    }
+
+    @GetMapping("/highest-salary")
+    public ResponseEntity<List<EmployeeHighestSalaryProjection>> getEmployeeHighestSalaryByDepartment() {
+        return ResponseEntity.ok(employeeService.getEmployeeHighestSalaryByDepartment());
+    }
+
+    @GetMapping("/managers/15-years")
+    public ResponseEntity<List<EmployeeDTO>> getManagersHiredMoreThan15YearsAgo() {
+        return ResponseEntity.ok(employeeService.getManagersHiredMoreThan15YearsAgo());
+    }
+
+    @GetMapping("/average-salary")
+    public ResponseEntity<List<AverageSalaryByDepartmentProjection>> getEmployeesWithSalaryAboveDepartmentAverage() {
+        return ResponseEntity.ok(employeeService.getEmployeesWithSalaryAboveDepartmentAverage());
+    }
+
+    @GetMapping("/by-country")
+    public ResponseEntity<List<EmployeesByCountryInformationProjection>> getEmployeesByCountryInformation() {
+        return ResponseEntity.ok(employeeService.getEmployeesByCountryInformation());
     }
 
 }
