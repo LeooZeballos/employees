@@ -1,0 +1,27 @@
+# General Config
+# --------------------------
+spring:
+  application:
+    name: employees
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotel_db
+    username: hotel_user
+    password: hotel_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+application:
+  # noinspection SpringBootApplicationYaml
+  title: Hotel Employees Management
+  # noinspection SpringBootApplicationYaml
+  version: 0.0.1-SNAPSHOT
+
+server:
+  port: 9090
