@@ -37,11 +37,11 @@ public class EmployeeResource {
     }
 
     @GetMapping("/highest-salary")
-    public ResponseEntity<List<EmployeeHighestSalaryProjection>> getEmployeeHighestSalaryByDepartment() {
+    public ResponseEntity<List<EmployeeHighestSalaryDTO>> getEmployeeHighestSalaryByDepartment() {
         return ResponseEntity.ok(employeeService.getEmployeeHighestSalaryByDepartment());
     }
 
-    @GetMapping("/managers/15-years")
+    @GetMapping("/managers")
     public ResponseEntity<List<EmployeeDTO>> getManagersHiredMoreThan15YearsAgo(
             @RequestParam(name = "years", defaultValue = "15") Integer years
     ) {

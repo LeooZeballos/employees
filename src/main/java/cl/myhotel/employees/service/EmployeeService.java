@@ -7,6 +7,7 @@ import cl.myhotel.employees.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,8 +46,18 @@ public class EmployeeService {
     /**
      * iii. Información del empleado con mayor sueldo de cada departamento.
      */
-    public List<EmployeeHighestSalaryProjection> getEmployeeHighestSalaryByDepartment() {
-        return employeeRepository.getHighestSalaryByDepartment();
+    public List<EmployeeHighestSalaryDTO> getEmployeeHighestSalaryByDepartment() {
+        List<EmployeeHighestSalaryProjection> highestSalaryByDepartment = employeeRepository.getHighestSalaryByDepartment();
+
+        List<EmployeeHighestSalaryDTO> highestSalaryDTOList = new ArrayList<>();
+        for (EmployeeHighestSalaryProjection employeeHighestSalaryProjection : highestSalaryByDepartment) {
+            EmployeeHighestSalaryDTO employeeHighestSalaryDTO = new EmployeeHighestSalaryDTO();
+            employeeHighestSalaryDTO.setDepartmentName(employeeHighestSalaryProjection.getDepartmentName());
+            employeeHighestSalaryDTO.setEmployee(employeeMapper.toDTO(employeeHighestSalaryProjection));
+            highestSalaryDTOList.add(employeeHighestSalaryDTO);
+        }
+
+        return highestSalaryDTOList;
     }
 
     /**

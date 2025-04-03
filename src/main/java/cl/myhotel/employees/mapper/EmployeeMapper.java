@@ -1,6 +1,7 @@
 package cl.myhotel.employees.mapper;
 
 import cl.myhotel.employees.dto.EmployeeDTO;
+import cl.myhotel.employees.dto.EmployeeHighestSalaryProjection;
 import cl.myhotel.employees.model.Employee;
 import org.springframework.stereotype.Component;
 
@@ -98,4 +99,19 @@ public class EmployeeMapper {
                 .collect(Collectors.toList());
     }
 
+    public EmployeeDTO toDTO(EmployeeHighestSalaryProjection employeeHighestSalaryProjection) {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setFirstName(employeeHighestSalaryProjection.getFirstName());
+        employeeDTO.setLastName(employeeHighestSalaryProjection.getLastName());
+        employeeDTO.setEmail(employeeHighestSalaryProjection.getEmail());
+        employeeDTO.setPhoneNumber(employeeHighestSalaryProjection.getPhoneNumber());
+        employeeDTO.setDepartmentName(employeeHighestSalaryProjection.getDepartmentName());
+        employeeDTO.setSalary(employeeHighestSalaryProjection.getSalary());
+        employeeDTO.setCommissionPct(employeeHighestSalaryProjection.getCommissionPct());
+        employeeDTO.setHireDate(employeeHighestSalaryProjection.getHireDate());
+        employeeDTO.setJobTitle(employeeHighestSalaryProjection.getJobId());
+        employeeDTO.setEmployeeId(employeeHighestSalaryProjection.getEmployeeId());
+
+        return employeeDTO;
+    }
 }

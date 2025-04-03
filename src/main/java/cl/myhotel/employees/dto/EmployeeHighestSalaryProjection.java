@@ -1,10 +1,13 @@
 package cl.myhotel.employees.dto;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 @SuppressWarnings("unused")
 public interface EmployeeHighestSalaryProjection {
     String getDepartmentName();
 
-    Long getEmployeeId();
+    BigDecimal getEmployeeId();
 
     String getFirstName();
 
@@ -14,13 +17,13 @@ public interface EmployeeHighestSalaryProjection {
 
     String getPhoneNumber();
 
-    String getHireDate();
+    LocalDate getHireDate();
 
     String getJobId();
 
-    Double getSalary();
+    BigDecimal getSalary();
 
-    Double getCommissionPct();
+    BigDecimal getCommissionPct();
 
     Long getManagerId();
 
