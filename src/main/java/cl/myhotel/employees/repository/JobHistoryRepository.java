@@ -8,5 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Leonel Zeballos
  */
+@SuppressWarnings("unused")
 public interface JobHistoryRepository extends JpaRepository<JobHistory, Long> {
 }

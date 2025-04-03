@@ -74,10 +74,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
             FROM employees e
                      LEFT JOIN employees m ON e.manager_id = m.employee_id
             WHERE m.manager_id IS NOT NULL
-              AND e.hire_date < DATE_SUB(CURDATE(), INTERVAL 15 YEAR)
+              AND e.hire_date < DATE_SUB(CURDATE(), INTERVAL :years YEAR)
             ORDER BY e.hire_date
             """, nativeQuery = true)
-    List<Employee> getManagersHiredMoreThan15YearsAgo();
+    List<Employee> getManagersHiredMoreThan15YearsAgo(Integer years);
 
     /**
      * v. Salario promedio de todos los departamentos que tengan más de 10 empleados.

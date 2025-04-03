@@ -87,6 +87,7 @@ public class EmployeeMapper {
      * @param employeeDTOs the list of EmployeeDTOs
      * @return the list of Employee entities
      */
+    @SuppressWarnings("unused")
     public List<Employee> toEntity(List<EmployeeDTO> employeeDTOs) {
         if (employeeDTOs == null) {
             return null;

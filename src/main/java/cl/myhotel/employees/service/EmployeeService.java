@@ -52,8 +52,8 @@ public class EmployeeService {
     /**
      * iv. Información de los gerentes que hayan sido contratados hace más de 15 años.
      */
-    public List<EmployeeDTO> getManagersHiredMoreThan15YearsAgo() {
-        List<Employee> managersHiredMoreThan15YearsAgo = employeeRepository.getManagersHiredMoreThan15YearsAgo();
+    public List<EmployeeDTO> getManagersHiredMoreThan15YearsAgo(Integer years) {
+        List<Employee> managersHiredMoreThan15YearsAgo = employeeRepository.getManagersHiredMoreThan15YearsAgo(years);
         return employeeMapper.toDTO(managersHiredMoreThan15YearsAgo);
     }
 
